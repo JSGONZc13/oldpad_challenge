@@ -8,6 +8,7 @@ namespace CodeChallenge
 {
     public class PadCodes
     {
+        // Define the codes for each key on the pad
         public Dictionary<String, List<String>> codes { get; set; } = new Dictionary<string, List<String>>
         {
             {"1", new List<String> { "&", "'", "(" } },
@@ -19,11 +20,12 @@ namespace CodeChallenge
             {"7", new List<String> { "P", "Q", "R","S"} },
             {"8", new List<String> { "T", "U", "V"} },
             {"9", new List<String> { "W", "X", "Y","Z"} },
-            {"0", new List<String> { " "} },
-            {"*", new List<String> { "-1"} },
-            {"#", new List<String> { "1"} }
+            {"0", new List<String> { " "} }, // 0 represents a space
+            {"*", new List<String> { "-1"} }, // * represents a special character for delete
+            {"#", new List<String> { "1"} } // # represents a special character for enter or end of the message
         };
 
+        // Validate if the input code is a valid code in the codes dictionary
         public Boolean IsValidCode(String code)
         {
             if (!this.codes.ContainsKey(code.ToString()))
