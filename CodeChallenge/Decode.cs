@@ -54,21 +54,21 @@ namespace CodeChallenge
             String decodedCode = "";
             if (String.IsNullOrEmpty(input.ToUpper()!))
             {
-                decodedCode = "The code is not valid, check and try again";
+                decodedCode = "ERROR: EMPTY CODE";
             }
             else
             {
                 List<String> codes = validateCodeList.GetCodesList(input);
                 if (!codes.Any())
                 {
-                    decodedCode = "The code is not valid, check the characters";
+                    decodedCode = "ERROR: CHECK CHARACTERS";
 
                 }
                 else
                 {
                     if (codes[codes.Count - 1] != "#")
                     {
-                        decodedCode = "The code is not valid, check if # is at the end of the message";
+                        decodedCode = "ERROR: MISSING #";
                     }
                     else
                     {
@@ -78,7 +78,7 @@ namespace CodeChallenge
                         {
                             decodedCodes.Add(decode.DecodedInput(code));
                         }
-                        decodedCode = $"Decoded code: {decode.CleanMessageParts(decodedCodes)}";
+                        decodedCode = $"{decode.CleanMessageParts(decodedCodes)}";
                     }
                 }
             }
